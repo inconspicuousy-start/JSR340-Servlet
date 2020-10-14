@@ -4,14 +4,32 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!-- 设置多个初始化参数 -->
+    <context-param>
+        <param-name>key</param-name>
+        <param-value>value</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>key1</param-name>
+        <param-value>value1</param-value>
+    </context-param>
+    
     <servlet>
         <servlet-name>hello</servlet-name>
         <servlet-class>com.inconspicuousy.servlet.HelloServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>resource</servlet-name>
+        <servlet-class>com.inconspicuousy.servlet.ReourceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resource</servlet-name>
+        <url-pattern>/resource</url-pattern>
+    </servlet-mapping>
 </web-app>
