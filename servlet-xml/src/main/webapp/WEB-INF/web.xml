@@ -28,8 +28,16 @@
         <servlet-name>resource</servlet-name>
         <servlet-class>com.inconspicuousy.servlet.ReourceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LifecycleServlet</servlet-name>
+        <servlet-class>com.inconspicuousy.servlet.LifecycleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>resource</servlet-name>
         <url-pattern>/resource</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LifecycleServlet</servlet-name>
+        <url-pattern>/lifecycle</url-pattern>
     </servlet-mapping>
 </web-app>
