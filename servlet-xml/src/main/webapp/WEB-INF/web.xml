@@ -14,10 +14,29 @@
         <param-name>key1</param-name>
         <param-value>value1</param-value>
     </context-param>
+
+    <!--<servlet>-->
+    <!--    <servlet-name>initParam</servlet-name>-->
+    <!--    <servlet-class>com.inconspicuousy.servlet.InitParamServlet</servlet-class>-->
+    <!--    &lt;!&ndash; 定义initParamServlet独有的初始化参数 &ndash;&gt;-->
+    <!--    <init-param>-->
+    <!--        <param-name>initParamKey</param-name>-->
+    <!--        <param-value>initParamValue</param-value>-->
+    <!--    </init-param>-->
+    <!--</servlet>-->
+    <!-- 定义映射的虚拟路径 -->
+    <!--<servlet-mapping>-->
+    <!--    <servlet-name>initParam</servlet-name>-->
+    <!--    <url-pattern>/init-param</url-pattern>-->
+    <!--</servlet-mapping>-->
     
     <servlet>
         <servlet-name>hello</servlet-name>
         <servlet-class>com.inconspicuousy.servlet.HelloServlet</servlet-class>
+        <init-param>
+            <param-name>helloKey</param-name>
+            <param-value>helloValue</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
@@ -38,6 +57,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LifecycleServlet</servlet-name>
+        <!--  -->
         <url-pattern>/lifecycle</url-pattern>
     </servlet-mapping>
 </web-app>

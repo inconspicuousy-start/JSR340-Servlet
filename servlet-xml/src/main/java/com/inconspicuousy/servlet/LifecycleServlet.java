@@ -1,12 +1,9 @@
 package com.inconspicuousy.servlet;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -15,31 +12,23 @@ import java.io.IOException;
 public class LifecycleServlet extends HttpServlet {
 
     public LifecycleServlet() {
-        super();
-        System.out.println("LifecycleServlet.LifecycleServlet");
+        System.out.println("我是Servlet构造器");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
-        System.out.println("LifecycleServlet.doGet");
-    }
-
-    @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        super.service(req, res);
-        System.out.println("LifecycleServlet.service");
+        System.out.print("每次请求的Servlet对象 => ");
+        System.out.println(this);
+        System.out.println("执行Service方法转发的doGet方法");
     }
 
     @Override
     public void destroy() {
-        super.destroy();
-        System.out.println("LifecycleServlet.destroy");
+        System.out.println("我是Servlet销毁的方法");
     }
 
     @Override
     public void init() throws ServletException {
-        super.init();
-        System.out.println("LifecycleServlet.init");
+        System.out.println("我是Servlet的初始化方法");
     }
 }
