@@ -10,7 +10,6 @@
     <packaging>war</packaging>
     <description>用xml配置Servlet</description>
 
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

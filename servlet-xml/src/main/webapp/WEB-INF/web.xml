@@ -38,10 +38,19 @@
             <param-value>helloValue</param-value>
         </init-param>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>hello</servlet-name>
         <url-pattern>/hello</url-pattern>
+    <!-- 这里我们通过配置多个url-pattern标签的方式实现多重虚拟路径映射 -->
+        <url-pattern>/hello.do</url-pattern>
     </servlet-mapping>
+
+    <!--<servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        &lt;!&ndash; 这里可以通过/hello.do也可以实现对HelloServlet的访问 &ndash;&gt;
+        <url-pattern>/hello.do</url-pattern>
+    </servlet-mapping>-->
 
     <servlet>
         <servlet-name>resource</servlet-name>
@@ -57,7 +66,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LifecycleServlet</servlet-name>
-        <!--  -->
-        <url-pattern>/lifecycle</url-pattern>
+        <url-pattern>/lifecycle/*.do</url-pattern>
     </servlet-mapping>
 </web-app>
