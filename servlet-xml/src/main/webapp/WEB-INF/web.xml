@@ -66,6 +66,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LifecycleServlet</servlet-name>
-        <url-pattern>/lifecycle/*.do</url-pattern>
+        <url-pattern>/lifecycle</url-pattern>
     </servlet-mapping>
 </web-app>
