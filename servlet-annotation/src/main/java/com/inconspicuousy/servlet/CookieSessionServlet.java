@@ -1,6 +1,7 @@
 package com.inconspicuousy.servlet;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -47,6 +48,10 @@ public class CookieSessionServlet extends HttpServlet {
         }
         // 设置一组Session的属性和属性值
         session.setAttribute("SESSION_ID", "SESSION_VALUE");
+
+        // 获取到Session的唯一识别码
+        String requestedSessionId = req.getRequestedSessionId();
+        System.out.println("requestedSessionId = " + requestedSessionId);
 
     }
 }
