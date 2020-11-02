@@ -24,12 +24,40 @@
 
         <!-- 配置认证约束 -->
         <!-- 指示应被允许访问此资源集合的用户角色 -->
-        <!-- 此处使用的角色名称必须与为此Web应用程序定义的安全角色元素之一的角色名称相对应 -->
-        <auth-constraint></auth-constraint>
+        <!-- 此处使用的角色名称必须与为此Web应用程序定义的security-role元素之一的role-name相对应 -->
+        <!-- 或者必须是特殊保留的角色名称"*"，这是一种紧凑语法，用于指示该Web应用程序中的所有角色 -->
+        <!-- 如果同时出现"*"和角色名称，则容器会将其解释为所有角色 -->
+        <!-- 如果未定义角色，则不允许任何用户访问包含安全性约束所描述的Web应用程序部分 -->
+        <!-- 确定访问权限时，容器会区分角色名称，区分大小写 -->
+        <auth-constraint>
+            <!-- 只有下面的角色才能访问到上述的资源 -->
+            <role-name>admin</role-name>
+        </auth-constraint>
+
+        <!--  用户数据约束 -->
+        <!-- 用于指示应如何保护客户端和容器之间通信的数据 -->
         <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+            <!-- 指定客户端与服务器之间的通信应为NONE，INTEGRAL或CONFIDENTIAL -->
+            <!-- NONE表示该应用程序不需要任何运输保证 -->
+            <!-- INTEGRAL表示应用程序要求在客户端和服务器之间发送的数据必须以在传输过程中无法更改的方式发送 -->
+            <!-- CONFIDENTIAL意味着应用程序要求以防止其他实体观察传输内容的方式传输数据 -->
+            <!-- 在大多数情况下，如果出现INTEGRAL或CONFIDENTIAL标志，则表明需要使用SSL -->
+            <transport-guarantee>NONE</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
+
+
+    <!-- 用于配置应使用的身份验证方法 -->
+    <!-- 此应用程序应使用的realm-name, 以及表单登录机制所需的属性 -->
+    <login-config>
+        <!-- 用于为Web应用程序配置身份验证机制 -->
+        <!-- 作为访问授权约束保护的任何Web资源的先决条件，用户必须已使用配置的机制进行了身份验证 -->
+        <!-- 合法值为“BASIC”，“DIGEST”，“FORM”，“CLIENT-CERT”或特定于供应商的身份验证方案 -->
+        <auth-method>FORM</auth-method>
+        <!-- 指定要在HTTP Basic授权中使用的realm-name-->
+        <realm-name>AUTH</realm-name>
+
+    </login-config>
 
     <!-- 设置角色信息 -->
     <security-role>
