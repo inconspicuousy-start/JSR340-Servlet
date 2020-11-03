@@ -5,22 +5,22 @@
          version="4.0">
 
     <!-- 设置安全约束 -->
-    <security-constraint>
+    <!--<security-constraint>-->
         <!-- 展示的简短名称 -->
-        <display-name>servlet-annotation</display-name>
+        <!--<display-name>servlet-annotation</display-name>-->
         <!-- 用于标识资源和那些应用了安全性约束的的资源上的HTTP方法 -->
         <!-- 如果未指定HTTP方法，则安全性约束将应用于所有HTTP方法 -->
         <!-- 如果HTTP方法由http-method-omission元素指定，则安全约束将应用于除集合中标识的方法以外的所有方法 -->
         <!-- http-method-omission和http-method元素永远不会在同一集合中混合 -->
-        <web-resource-collection>
+        <!--<web-resource-collection>-->
             <!-- web-resource-name包含此Web资源集合的名称 -->
-            <web-resource-name>servlet-annotation</web-resource-name>
+            <!--<web-resource-name>servlet-annotation</web-resource-name>-->
             <!-- 指定匹配的URL -->
-            <url-pattern>/auth</url-pattern>
+            <!--<url-pattern>/auth</url-pattern>-->
             <!-- 约束的方法名称 -->
-            <http-method>GET</http-method>
+            <!--<http-method>GET</http-method>-->
             <!--<http-method-omission>POST</http-method-omission>-->
-        </web-resource-collection>
+        <!--</web-resource-collection>-->
 
         <!-- 配置认证约束 -->
         <!-- 指示应被允许访问此资源集合的用户角色 -->
@@ -29,42 +29,39 @@
         <!-- 如果同时出现"*"和角色名称，则容器会将其解释为所有角色 -->
         <!-- 如果未定义角色，则不允许任何用户访问包含安全性约束所描述的Web应用程序部分 -->
         <!-- 确定访问权限时，容器会区分角色名称，区分大小写 -->
-        <auth-constraint>
+        <!--<auth-constraint>-->
             <!-- 只有下面的角色才能访问到上述的资源 -->
-            <role-name>admin</role-name>
-        </auth-constraint>
+            <!--<role-name>admin</role-name>-->
+        <!--</auth-constraint>-->
 
         <!--  用户数据约束 -->
         <!-- 用于指示应如何保护客户端和容器之间通信的数据 -->
-        <user-data-constraint>
+        <!--<user-data-constraint>-->
             <!-- 指定客户端与服务器之间的通信应为NONE，INTEGRAL或CONFIDENTIAL -->
             <!-- NONE表示该应用程序不需要任何运输保证 -->
             <!-- INTEGRAL表示应用程序要求在客户端和服务器之间发送的数据必须以在传输过程中无法更改的方式发送 -->
             <!-- CONFIDENTIAL意味着应用程序要求以防止其他实体观察传输内容的方式传输数据 -->
             <!-- 在大多数情况下，如果出现INTEGRAL或CONFIDENTIAL标志，则表明需要使用SSL -->
-            <transport-guarantee>NONE</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
+            <!--<transport-guarantee>NONE</transport-guarantee>-->
+        <!--</user-data-constraint>-->
+    <!--</security-constraint>-->
 
 
     <!-- 用于配置应使用的身份验证方法 -->
     <!-- 此应用程序应使用的realm-name, 以及表单登录机制所需的属性 -->
     <login-config>
-        <!-- 用于为Web应用程序配置身份验证机制 -->
-        <!-- 作为访问授权约束保护的任何Web资源的先决条件，用户必须已使用配置的机制进行了身份验证 -->
-        <!-- 合法值为“BASIC”，“DIGEST”，“FORM”，“CLIENT-CERT”或特定于供应商的身份验证方案 -->
-        <auth-method>FORM</auth-method>
-        <!-- 指定要在HTTP Basic授权中使用的realm-name-->
-        <realm-name>AUTH</realm-name>
-
+         <!--用于为Web应用程序配置身份验证机制 -->
+         <!--作为访问授权约束保护的任何Web资源的先决条件，用户必须已使用配置的机制进行了身份验证 -->
+         <!--合法值为“BASIC”，“DIGEST”，“FORM”，“CLIENT-CERT”或特定于供应商的身份验证方案 -->
+        <auth-method>BASIC</auth-method>
     </login-config>
 
     <!-- 设置角色信息 -->
-    <security-role>
-        <role-name>admin</role-name>
-    </security-role>
-    <security-role>
-        <role-name>Test</role-name>
-    </security-role>
+    <!--<security-role>-->
+    <!--    <role-name>admin</role-name>-->
+    <!--</security-role>-->
+    <!--<security-role>-->
+    <!--    <role-name>Test</role-name>-->
+    <!--</security-role>-->
 
 </web-app>
